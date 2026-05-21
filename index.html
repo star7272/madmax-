@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SKILLI-TECH DIVER</title>
+
+<!-- ICONS -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Consolas, monospace;
+    scroll-behavior:smooth;
+}
+
+html,body{
+    background:#000;
+    color:#00ff00;
+    overflow-x:hidden;
+}
+
+/* MATRIX EFFECT */
+
+body::before{
+    content:"010101010101010101010101010101010101010101010101";
+    position:fixed;
+    top:-100%;
+    left:0;
+    width:100%;
+    height:300%;
+    color:#00ff00;
+    opacity:0.05;
+    font-size:20px;
+    z-index:-1;
+    animation:matrix 15s linear infinite;
+}
+
+@keyframes matrix{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(50%);
+    }
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:15px;
+    background:#000;
+    border-bottom:2px solid #00ff00;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#00ff00;
+    text-shadow:
+    0 0 5px #00ff00,
+    0 0 10px #00ff00,
+    0 0 20px #00ff00,
+    0 0 40px #00ff00;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:
+        0 0 5px #00ff00,
+        0 0 10px #00ff00;
+    }
+
+    to{
+        text-shadow:
+        0 0 20px #00ff00,
+        0 0 40px #00ff00,
+        0 0 60px #00ff00;
+    }
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:#00ff00;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:white;
+    text-shadow:0 0 10px #00ff00;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:70px 20px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#00cc00;
+    font-size:20px;
+}
+
+/* CONNECT BUTTON */
+
+.connect-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    border:2px solid #00bfff;
+    color:#00bfff;
+    text-decoration:none;
+    border-radius:8px;
+    box-shadow:0 0 15px #00bfff;
+    transition:0.3s;
+    font-size:20px;
+}
+
+.connect-btn:hover{
+    background:#00bfff;
+    color:#000;
+    box-shadow:
+    0 0 20px #00bfff,
+    0 0 40px #00bfff;
+}
+
+/* STEPS */
+
+.steps{
+    margin-top:40px;
+}
+
+.steps h2{
+    margin-bottom:20px;
+    color:#00bfff;
+    text-shadow:0 0 10px #00bfff;
+}
+
+.steps p{
+    margin:10px 0;
+    font-size:18px;
+}
+
+/* WEBSITE INSIDE WEBSITE */
+
+.website-box{
+    width:90%;
+    margin:40px auto;
+    border:2px solid #00ff00;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 0 20px #00ff00;
+}
+
+/* TERMINAL BOX (ADD HERE) */
+
+.terminal{
+    margin-top:30px;
+    padding:20px;
+    border:2px solid #00bfff;
+    color:#00ff00;
+    background:#000;
+    width:90%;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    box-shadow:0 0 15px #00bfff;
+    font-family:monospace;
+    min-height:120px;
+    white-space:pre-line;
+}
+
+iframe{
+    width:100%;
+    height:500px;
+    border:none;
+    background:#000;
+}
+
+/* SERVICES */
+
+.services{
+    padding:50px 20px;
+    text-align:center;
+}
+
+.services h2{
+    margin-bottom:30px;
+    font-size:40px;
+}
+
+.service-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+.card{
+    width:280px;
+    border:2px solid #00ff00;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 15px #00ff00;
+    background:#000;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.price{
+    margin-top:15px;
+    font-size:28px;
+    color:white;
+}
+
+/* DOWNLOAD BUTTON */
+
+.download-btn{
+    display:inline-block;
+    padding:10px 20px;
+    border:2px solid #00bfff;
+    color:#00bfff;
+    text-decoration:none;
+    border-radius:6px;
+    box-shadow:0 0 10px #00bfff;
+    transition:0.3s;
+    margin-top:10px;
+}
+
+.download-btn:hover{
+    background:#00bfff;
+    color:#000;
+}
+
+/* FLOAT CONTACT */
+
+.float-contact{
+    position:fixed;
+    right:15px;
+    bottom:20px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    z-index:999;
+}
+
+.float-contact a{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#000;
+    border:2px solid #00ff00;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#00ff00;
+    text-decoration:none;
+    font-size:25px;
+    box-shadow:0 0 15px #00ff00;
+    transition:0.3s;
+}
+
+.float-contact a:hover{
+    background:#00ff00;
+    color:#000;
+    transform:scale(1.1);
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:20px;
+    border-top:1px solid #00ff00;
+    margin-top:50px;
+}
+#clock{
+    font-size:22px;
+    margin-bottom:15px;
+    color:#00bfff;
+    text-shadow:
+    0 0 10px #00bfff,
+    0 0 20px #00bfff;
+}
+
+.terminal{
+    margin-top:30px;
+    padding:20px;
+    border:2px solid #00bfff;
+    color:#00ff00;
+    background:#000;
+    width:90%;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    box-shadow:0 0 20px #00bfff;
+    font-family:Consolas, monospace;
+    min-height:160px;
+    white-space:pre-line;
+    position:relative;
+    overflow:hidden;
+}
+
+/* blinking cursor */
+.terminal::after{
+    content:"█";
+    position:absolute;
+    right:15px;
+    bottom:10px;
+    color:#00bfff;
+    animation:blink 0.7s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:0;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+SKILLI-TECH DIVER
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#vps">VPS</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#allcontacts">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+<h1>SKILLI-TECH DIVER</h1>
+
+<p>Cyber Matrix Technology Platform</p>
+
+<a href="http://178.238.236.245:21567/"
+class="connect-btn"
+target="_blank">
+
+CONNECT BOT
+
+</a>
+
+<!-- BOT STEPS -->
+
+<div class="steps">
+
+<h2>HOW TO CONNECT WHATSAPP BOT</h2>
+
+<p>1. Click CONNECT BOT</p>
+<p>2. Follow The Instructions to the Next Page</p>
+<p>3. Remember to Promote Our Service </p>
+<p>4. Any Problem That Arise Contact Us</p>
+<p>5. Start Enjoy Using SKILLI-MD WHATSAPP BOT</p>
+
+</div>
+
+</section>
+
+<!-- WEBSITE INSIDE WEBSITE -->
+
+<div class="website-box">
+
+<iframe src="https://files.catbox.moe/ybx0wt.mp4"></iframe>
+
+</div>
+
+<!-- VPS -->
+
+<section class="services" id="vps">
+
+<h2>VPS SERVER PACKAGES</h2>
+
+<div class="service-container">
+
+<div class="card">
+<h3>BASIC VPS</h3>
+<p>1GB RAM | 1 CPU</p>
+<div class="price">$5 / Month</div>
+</div>
+
+<div class="card">
+<h3>PRO VPS</h3>
+<p>4GB RAM | 2 CPU</p>
+<div class="price">$15 / Month</div>
+</div>
+
+<div class="card">
+<h3>PREMIUM VPS</h3>
+<p>8GB RAM | 4 CPU</p>
+<div class="price">$30 / Month</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+<h2>OUR SERVICES</h2>
+
+<div class="service-container">
+
+<div class="card">
+<h3>Website Development</h3>
+<p>Professional Hacker Style Websites</p>
+<div class="price">KSh 5,000</div>
+</div>
+
+<div class="card">
+<h3>WhatsApp Bot Development</h3>
+<p>Advanced Automated Bot Systems</p>
+<div class="price">KSh 3,500</div>
+</div>
+
+<div class="card">
+<h3>Website Deployment</h3>
+<p>Deploy Websites To VPS & Vercel</p>
+<div class="price">KSh 2,000</div>
+</div>
+
+<div class="card">
+<h3>DOWNLOAD CENTER</h3>
+
+<p>Download Free Tools & Apps</p>
+
+<a href="files/app.apk"
+download
+class="download-btn">
+
+DOWNLOAD APP
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT SECTION -->
+
+<section class="services" id="allcontacts">
+
+<h2>CONTACT US</h2>
+
+<div class="service-container">
+
+<div class="card">
+
+<i class="fab fa-whatsapp"
+style="font-size:40px;"></i>
+
+<h3>WhatsApp</h3>
+
+<a href="https://wa.me/254738017513"
+target="_blank"
+class="download-btn">
+
+OPEN CHAT
+
+</a>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-envelope"
+style="font-size:40px;"></i>
+
+<h3>Email</h3>
+
+<a href="stanostar72@gmail.com"
+class="download-btn">
+
+SEND EMAIL
+
+</a>
+
+</div>
+
+<div class="card">
+
+<i class="fab fa-telegram"
+style="font-size:40px;"></i>
+
+<h3>Telegram</h3>
+
+<a href="https://t.me/skillistarscodebase001"
+target="_blank"
+class="download-btn">
+
+OPEN TELEGRAM
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FLOAT CONTACT -->
+
+<div class="float-contact">
+
+<a href="https://wa.me/254738017513"
+target="_blank">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+<a href="stanostar72@gmail.com">
+
+<i class="fas fa-envelope"></i>
+
+</a>
+
+<a href="https://t.me/skillistarscodebase001"
+target="_blank">
+
+<i class="fab fa-telegram"></i>
+
+</a>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div id="clock"></div>
+
+<p>
+© <span id="year"></span>
+2026---SKILLI-TECH DIVER | MATRIX SYSTEM
+</p>
+
+</footer>
+
+<!-- FOOTER -->
+
+<script>
+window.onload = () => {
+  alert("Welcome to SKILLI-TECH DIVER 🚀");
+}
+</script>
+
+<script>
+
+/* AUTO YEAR */
+
+document.getElementById("year").innerHTML =
+new Date().getFullYear();
+
+/* LIVE CLOCK */
+
+function updateClock(){
+
+let now = new Date();
+
+let hours = String(now.getHours()).padStart(2,'0');
+
+let minutes = String(now.getMinutes()).padStart(2,'0');
+
+let seconds = String(now.getSeconds()).padStart(2,'0');
+
+document.getElementById("clock").innerHTML =
+
+"TIME : " + hours + ":" + minutes + ":" + seconds;
+
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+</script>
+
+<script>
+
+    <!-- TERMINAL GOES HERE -->
+
+<div class="terminal" id="terminal"></div>
+const terminal = document.getElementById("terminal");
+
+const lines = [
+"> Booting SKILLI-TECH system...",
+"> Loading matrix interface...",
+"> Checking VPS servers...",
+"> Connecting secure node...",
+"> Injecting bot framework...",
+"> Running diagnostics...",
+"> SYSTEM ONLINE ✔",
+"> Welcome Admin 🚀"
+];
+
+let i = 0;
+let charIndex = 0;
+let currentLine = "";
+
+function typeEffect(){
+    if(i < lines.length){
+        if(charIndex < lines[i].length){
+            currentLine += lines[i][charIndex];
+            terminal.innerHTML = lines.slice(0, i).join("\n") + "\n" + currentLine;
+            charIndex++;
+            setTimeout(typeEffect, 40);
+        } else {
+            currentLine = "";
+            charIndex = 0;
+            i++;
+            setTimeout(typeEffect, 500);
+        }
+    } else {
+        liveMode();
+    }
+}
+
+/* LIVE UPDATES AFTER BOOT */
+function liveMode(){
+    setInterval(() => {
+        const time = new Date().toLocaleTimeString();
+        terminal.innerHTML += "\n[SYS LOG] " + time + " - System stable";
+        terminal.scrollTop = terminal.scrollHeight;
+    }, 3000);
+}
+
+window.onload = typeEffect;
+</script>
+
+</body>
+</html>
