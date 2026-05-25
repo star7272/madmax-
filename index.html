@@ -4,11 +4,244 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SKILLI-TECH DIVER</title>
+
 
 <!-- ICONS -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+    /* RESPONSIVE DESIGN */
+
+body{
+  margin:0;
+  padding:0;
+  font-family:Arial;
+  overflow-x:hidden;
+}
+
+/* FLEXIBLE CONTAINERS */
+
+.container{
+  width:90%;
+  margin:auto;
+  padding:20px;
+}
+
+/* RESPONSIVE IMAGES */
+
+img{
+  max-width:100%;
+  height:auto;
+}
+
+/* RESPONSIVE TEXT */
+
+h1{
+  font-size:50px;
+}
+
+p{
+  font-size:20px;
+}
+
+/* BUTTONS */
+
+button{
+  padding:12px 20px;
+  font-size:18px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* MOBILE SCREEN */
+
+@media(max-width:768px){
+
+h1{
+  font-size:30px;
+}
+
+p{
+  font-size:16px;
+}
+
+button{
+  width:100%;
+  margin-top:10px;
+  font-size:16px;
+}
+
+.theme-buttons{
+  display:flex;
+  flex-direction:column;
+  right:10px;
+}
+
+}
+
+/* SMALL PHONES */
+
+@media(max-width:480px){
+
+h1{
+  font-size:24px;
+}
+
+p{
+  font-size:14px;
+}
+
+.container{
+  width:95%;
+  padding:10px;
+}
+
+}
+
+</style>
+
+<style>
+
+    /* LOADER */
+
+#loader{
+position:fixed;
+width:100%;
+height:100vh;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+flex-direction:column;
+}
+
+/* LOADING TEXT */
+
+#loader h1{
+color:#00ff00;
+font-size:40px;
+font-family:monospace;
+text-shadow:0 0 20px #00ff00;
+animation:pulse 1s infinite;
+}
+
+/* ANIMATION */
+
+@keyframes pulse{
+
+0%{
+opacity:0.3;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:0.3;
+}
+
+}
+
+</style>
+
+<style>
+
+body{
+  margin:0;
+  padding:0;
+  font-family:Arial;
+  transition:0.4s;
+}
+
+/* THEMES */
+
+.dark{
+  background:#000;
+  color:#00ff00;
+}
+
+.light{
+  background:#ffffff;
+  color:#000000;
+}
+
+.yellow{
+  background:#111;
+  color:yellow;
+}
+
+.pink{
+  background:#1a001a;
+  color:#ff4fd8;
+}
+
+.red{
+  background:#1a0000;
+  color:#ff3b3b;
+}
+
+.purple{
+  background:#12001f;
+  color:#c084fc;
+}
+
+.maroon{
+  background:#1a0008;
+  color:#ff4d6d;
+}
+
+
+
+/* BUTTONS */
+
+.theme-buttons{
+  position:fixed;
+  top:20px;
+  right:20px;
+}
+
+.theme-buttons button{
+  padding:10px 15px;
+  margin:5px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+</style>
+
+<style>
+
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* optional dark overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 0;
+}
+</style>
 
 <style>
 
@@ -350,7 +583,76 @@ footer{
 }
 
 </style>
+
+<style>
+
+.back-home {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: var(--accent-color, #ff6600);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: 0.3s ease;
+}
+
+.back-home:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--accent-color, #ff6600);
+}
+
+</style>
+
 </head>
+
+<body>
+
+    <button class="back-home" onclick="goHome()">⬅ Back Home</button>
+    </body>
+
+
+<body>   
+
+    <div id="loader">
+
+<h1>⚡ SKILLI TECH DIVER ⚡</h1>
+
+</div>
+
+<div id="content" style="display:none;">
+
+<!-- YOUR WEBSITE CONTENT HERE -->
+
+<h1>WELCOME TO</h1>
+
+</div>
+
+</body>
+
+<body>
+
+    <div class="theme-buttons">
+  <button onclick="setTheme('dark')">Dark</button>
+  <button onclick="setTheme('light')">Light</button>
+  <button onclick="setTheme('yellow')">Yellow</button>
+  <button onclick="setTheme('pink')">Pink</button>
+    <button onclick="setTheme('red')">Red</button>
+    <button onclick="setTheme('purple')">Purple</button>
+    <button onclick="setTheme('maroon')">Maroon</button>
+</div>
+
+</body>
+
+<body>
+    <video autoplay muted loop id="bg-video">
+  <source src="https://files.catbox.moe/43i0if.mp4" type="video/mp4">
+</video>
+</body>
 
 <body>
 
@@ -387,15 +689,6 @@ CONNECT BOT
 
 </a>
 
-<!-- SYSTEM LOADING -->
-<div class="loading-section">
-    <h2 class="loading-text">SYSTEM LOADING...</h2>
-
-    <div class="loading-bar">
-        <div class="loading-progress"></div>
-    </div>
-</div>
-
 <!-- BOT STEPS -->
 
 <div class="steps">
@@ -411,95 +704,6 @@ CONNECT BOT
 </div>
 
 </section>
-
-<body>
-
-<!-- TERMINAL -->
-
-<div class="terminal" id="terminal"></div>
-
-</div>
-
-<script>
-
-/* TERMINAL */
-
-const terminal =
-document.getElementById("terminal");
-
-const lines = [
-
-"> Booting SKILLI-TECH system...",
-"> Loading matrix interface...",
-"> Checking VPS servers...",
-"> Connecting secure node...",
-"> Injecting bot framework...",
-"> Running diagnostics...",
-"> SYSTEM ONLINE ✔",
-"> Welcome Admin 🚀"
-
-];
-
-let i = 0;
-let charIndex = 0;
-let currentLine = "";
-
-function typeEffect(){
-
-if(i < lines.length){
-
-if(charIndex < lines[i].length){
-
-currentLine += lines[i][charIndex];
-
-terminal.innerHTML =
-lines.slice(0, i).join("\n")
-+ "\n" + currentLine;
-
-charIndex++;
-
-setTimeout(typeEffect,40);
-
-}else{
-
-currentLine = "";
-charIndex = 0;
-i++;
-
-setTimeout(typeEffect,500);
-
-}
-
-}else{
-
-liveMode();
-
-}
-
-}
-
-function liveMode(){
-
-setInterval(() => {
-
-const time =
-new Date().toLocaleTimeString();
-
-terminal.innerHTML +=
-"\n[SYS LOG] " +
-time +
-" - System stable";
-
-terminal.scrollTop =
-terminal.scrollHeight;
-
-},3000);
-
-}
-
-typeEffect();
-
-</script>
 
 <!-- WEBSITE INSIDE WEBSITE -->
 
@@ -680,18 +884,10 @@ target="_blank">
 
 <p>
 © <span id="year"></span>
-2026---SKILLI-TECH DIVER | MATRIX SYSTEM
+😉😉😎SKILLI-TECH DIVER | MATRIX SYSTEM
 </p>
 
 </footer>
-
-<!-- FOOTER -->
-
-<script>
-window.onload = () => {
-  alert("Welcome to SKILLI-TECH DIVER 🚀");
-}
-</script>
 
 
 <script>
@@ -723,169 +919,103 @@ setInterval(updateClock,1000);
 
 updateClock();
 
+</script>
+
+<script>
+
+    <!-- TERMINAL GOES HERE -->
+
+<div class="terminal" id="terminal"></div>
+const terminal = document.getElementById("terminal");
+
+const lines = [
+"> Booting SKILLI-TECH system...",
+"> Loading matrix interface...",
+"> Checking VPS servers...",
+"> Connecting secure node...",
+"> Injecting bot framework...",
+"> Running diagnostics...",
+"> SYSTEM ONLINE ✔",
+"> Welcome Admin 🚀"
+];
+
+let i = 0;
+let charIndex = 0;
+let currentLine = "";
+
+function typeEffect(){
+    if(i < lines.length){
+        if(charIndex < lines[i].length){
+            currentLine += lines[i][charIndex];
+            terminal.innerHTML = lines.slice(0, i).join("\n") + "\n" + currentLine;
+            charIndex++;
+            setTimeout(typeEffect, 40);
+        } else {
+            currentLine = "";
+            charIndex = 0;
+            i++;
+            setTimeout(typeEffect, 500);
+        }
+    } else {
+        liveMode();
+    }
+}
+
+/* LIVE UPDATES AFTER BOOT */
+function liveMode(){
+    setInterval(() => {
+        const time = new Date().toLocaleTimeString();
+        terminal.innerHTML += "\n[SYS LOG] " + time + " - System stable";
+        terminal.scrollTop = terminal.scrollHeight;
+    }, 3000);
+}
+
+window.onload = typeEffect;
+</script>
+
+<script>
+
+/* WAIT 3 SECONDS */
+
+setTimeout(()=>{
+
+document.getElementById("loader").style.display =
+"none";
+
+document.getElementById("content").style.display =
+"block";
+
+},3000);
 
 </script>
 
-<style>
+<script>
 
-/* LOADING SECTION */
-.loading-section{
-    width:100%;
-    margin-top:40px;
-    text-align:center;
+function setTheme(theme){
+
+document.body.className = theme;
+
+localStorage.setItem("theme", theme);
+
 }
 
-/* TEXT */
-.loading-text{
-    color:#7CFF00;
-    font-size:40px;
-    font-family:monospace;
-    letter-spacing:5px;
-    margin-bottom:20px;
-    text-shadow:0 0 10px #00ff00;
+/* SAVE THEME */
+
+window.onload = () => {
+
+const savedTheme = localStorage.getItem("theme") || "dark";
+
+document.body.className = savedTheme;
+
+};
+
+</script>
+
+<script>
+function goHome() {
+  window.location.href = "index.html";
 }
-
-/* BAR */
-.loading-bar{
-    width:90%;
-    height:40px;
-    margin:auto;
-    border:4px solid #00ff00;
-    border-radius:20px;
-    overflow:hidden;
-    background:#111;
-    box-shadow:
-    0 0 10px #00ff00,
-    0 0 20px #00ff00;
-}
-
-/* PROGRESS */
-.loading-progress{
-    width:0%;
-    height:100%;
-    background:linear-gradient(to right,#ffffff,#00ff00);
-    box-shadow:
-    0 0 20px #00ff00,
-    0 0 40px #00ff00;
-    animation:load 6s linear infinite;
-}
-
-/* ANIMATION */
-@keyframes load{
-    0%{
-        width:0%;
-    }
-
-    100%{
-        width:100%;
-    }
-}
-
-</style>
-
-<style>
-
-/* TERMINAL BOX */
-
-.terminal-box{
-    width:95%;
-    margin:auto;
-    margin-top:40px;
-    padding:25px;
-
-    background:rgba(0,0,0,0.85);
-
-    border:2px solid #00e5ff;
-
-    box-shadow:
-    0 0 10px #00e5ff,
-    0 0 25px #00e5ff;
-
-    border-radius:5px;
-
-    font-family:monospace;
-
-    overflow:hidden;
-}
-
-/* TERMINAL LINES */
-
-.terminal-line{
-    color:#66ff33;
-
-    font-size:20px;
-
-    margin:8px 0;
-
-    text-shadow:0 0 5px #00ff00;
-
-    animation:flicker 2s infinite;
-}
-
-/* SUCCESS */
-
-.success{
-    color:#7CFF00;
-    font-weight:bold;
-}
-
-/* LOG COLOR */
-
-.log{
-    color:#99ff66;
-}
-
-/* TERMINAL CURSOR EFFECT */
-
-.terminal-box::after{
-    content:"";
-
-    width:12px;
-    height:35px;
-
-    background:#00ffd5;
-
-    position:absolute;
-
-    right:40px;
-    bottom:20px;
-
-    animation:blink 1s infinite;
-}
-
-/* FLICKER */
-
-@keyframes flicker{
-
-    0%{
-        opacity:1;
-    }
-
-    50%{
-        opacity:0.8;
-    }
-
-    100%{
-        opacity:1;
-    }
-}
-
-/* BLINK */
-
-@keyframes blink{
-
-    0%{
-        opacity:1;
-    }
-
-    50%{
-        opacity:0;
-    }
-
-    100%{
-        opacity:1;
-    }
-}</style>
+</script>
 
 </body>
 </html>
