@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SKILLI-MD WHATSAPP-BOT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Background Video */
+video.bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(35%);
+}
+
+/* Center Content */
+.container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    color: white;
+    padding: 20px;
+}
+
+/* Title */
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 40px;
+    letter-spacing: 3px;
+    color: #38bdf8;
+    text-shadow: 0 0 5px #38bdf8,
+                 0 0 15px #0ea5e9,
+                 0 0 30px #0ea5e9,
+                 0 0 50px #0284c7;
+}
+
+/* Subtitle */
+p {
+    color: #cbd5e1;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+/* Button */
+a.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #38bdf8;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+a.button:hover {
+    background: #0ea5e9;
+    transform: scale(1.05);
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- BACKGROUND VIDEO (UPDATED LINK) -->
+<video class="bg-video" autoplay muted loop>
+    <source src="https://files.catbox.moe/43i0if.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+    <h1>SKILLI-MD WHATSAPP-BOT</h1>
+    <p>Welcome to the official bot dashboard</p>
+
+    <a class="button" href="http://212.47.74.104:25034/" target="_blank">
+        Open Bot System
+    </a>
+</div>
+
+</body>
+</html>
