@@ -613,7 +613,7 @@
   <script>
 async function getCode() {
   try {
-    const res = await fetch("http://212.47.74.104:25034/code");
+    const res = await fetch("http://212.47.74.104:25034/");
     const data = await res.json();
 
     document.getElementById("codeValue").innerText = data.code;
