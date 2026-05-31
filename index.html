@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SKILLI-MD WHATSAPP-BOT</title>
+<title>█▓▒░ SKILLI-MD ░▒▓█
+   WhatsApp Bot ⚡</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
@@ -33,19 +34,56 @@ body, html {
     flex-direction: column;
 }
 
-#intro h1 {
-    font-family: 'Orbitron', sans-serif;
+/* LOADER BOX */
+.loader-box {
+    text-align: center;
     color: #38bdf8;
-    font-size: 28px;
-    letter-spacing: 3px;
-    text-shadow: 0 0 10px #38bdf8;
-    animation: pulse 1.5s infinite;
+    font-family: 'Orbitron', sans-serif;
 }
 
-@keyframes pulse {
-    0% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.1); }
-    100% { opacity: 0.5; transform: scale(1); }
+.loader-box h1 {
+    font-size: 32px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px #38bdf8;
+}
+
+.loader-box p {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.loader-bar {
+    width: 220px;
+    height: 6px;
+    background: #1e293b;
+    margin: 20px auto 10px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.loader-fill {
+    width: 0%;
+    height: 100%;
+    background: #38bdf8;
+    box-shadow: 0 0 10px #38bdf8;
+    transition: width 0.2s;
+}
+
+.loader-text {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.status {
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 8px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.3; }
 }
 
 /* BACKGROUND VIDEO */
@@ -104,27 +142,137 @@ a.button {
 a.button:hover {
     background: #0ea5e9;
     transform: scale(1.05);
-}
-</style>
+}  
+</styles>    
+    
+  <style>
 
+/* YOUR EXISTING CSS */
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    ...
+}
+
+/* HUD CORNERS CSS */
+.hud-frame {
+    ...
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(
+            transparent 0px,
+            transparent 3px,
+            rgba(56,189,248,0.03) 4px
+        );
+    z-index: 4;
+}
+
+/* MULTIPLE SCAN BEAMS */
+.scan-beam {
+    position: fixed;
+    left: -100%;
+    width: 120%;
+    height: 2px;
+    z-index: 6;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #38bdf8,
+        #ffffff,
+        #38bdf8,
+        transparent
+    );
+    box-shadow:
+        0 0 10px #38bdf8,
+        0 0 20px #38bdf8,
+        0 0 40px #0ea5e9;
+    opacity: 0.8;
+}
+
+.beam1 {
+    animation: scanBeam 4s linear infinite;
+}
+
+.beam2 {
+    animation: scanBeam 4s linear infinite;
+    animation-delay: 1.3s;
+}
+
+.beam3 {
+    animation: scanBeam 4s linear infinite;
+    animation-delay: 2.6s;
+}
+
+@keyframes scanBeam {
+    0% {
+        top: -10%;
+        left: -120%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 110%;
+        left: 120%;
+        opacity: 0;
+    }
+}
+
+</style>  
 </head>
 
 <body>
 
-<!-- INTRO SCREEN -->
+<!-- INTRO LOADER -->
 <div id="intro">
-    <h1>SKILLI-MD STARTING...</h1>
+    <div class="loader-box">
+        <h1>SKILLI-MD</h1>
+        <p>FREE WHATSAPP BOT</p>
+
+        <div class="loader-bar">
+            <div class="loader-fill" id="loaderFill"></div>
+        </div>
+
+        <div class="loader-text" id="loaderText">0%</div>
+        <div class="status">STARTING SYSTEM...</div>
+    </div>
 </div>
 
+   <!-- MULTIPLE SCAN BEAMS -->
+<div class="scan-beam beam1"></div>
+<div class="scan-beam beam2"></div>
+<div class="scan-beam beam3"></div> 
+    
 <!-- BACKGROUND VIDEO -->
-<video class="bg-video" autoplay muted loop playsinline preload="auto">
+<video class="bg-video" autoplay muted loop playsinline>
     <source src="https://files.catbox.moe/43i0if.mp4" type="video/mp4">
 </video>
 
 <!-- BACKGROUND MUSIC -->
 <audio autoplay loop id="bgMusic">
-    <source src="https://files.catbox.moe/qt9bt7.mp3"="audio/mpeg">
+    <source src="https://files.catbox.moe/qt9bt7.mp3" type="audio/mpeg">
 </audio>
+    
+    <!-- NEON HUD CORNERS -->
+<div class="hud-frame">
+    <div class="corner top-left"></div>
+    <div class="corner top-right"></div>
+    <div class="corner bottom-left"></div>
+    <div class="corner bottom-right"></div>
+</div>
 
 <!-- MAIN CONTENT -->
 <div class="container">
@@ -136,15 +284,29 @@ a.button:hover {
     </a>
 </div>
 
-<!-- INTRO SCRIPT -->
+<!-- SCRIPT -->
 <script>
-setTimeout(() => {
-    document.getElementById("intro").style.display = "none";
-}, 3000);
+let progress = 0;
 
-// Enable music on first click (browser fix)
+let loader = setInterval(() => {
+    progress += 2;
+
+    document.getElementById("loaderFill").style.width = progress + "%";
+    document.getElementById("loaderText").innerText = progress + "%";
+
+    if (progress >= 100) {
+        clearInterval(loader);
+
+        setTimeout(() => {
+            document.getElementById("intro").style.display = "none";
+        }, 500);
+    }
+}, 60);
+
+// Fix autoplay restriction
 document.addEventListener("click", function () {
-    document.getElementById("bgMusic").play();
+    const music = document.getElementById("bgMusic");
+    if (music) music.play();
 });
 </script>
 
